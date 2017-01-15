@@ -39,13 +39,20 @@ export default function() {
       }
     }];
 
+  // Here we define what happens when '/rentals' is called in the browser.
+  // Basically we are stubbing the return value of this API call.
   this.get('/rentals', function(_db, request) {
     if(request.queryParams.city !== undefined) {
+      // If the request is received with a query param 'city' (&city='value')
+      // we need to filter our results. We are actually emulating what
+      // will be done server side by our API.
+      let lowerCaseRequestedCity = request.queryParams.city.toLowerCase();
       let filteredRentals = rentals.filter(function(i) {
-        return i.attributes.city.toLowerCase().indexOf(request.queryParams.city.toLowerCase()) !== -1;
+        return i.attributes.city.toLowerCase().indexOf(lowerCaseRequestedCity) !== -1;
       });
       return { data: filteredRentals };
     } else {
+      // If no city param is passed, just return all results.
       return { data: rentals };
     }
   });
