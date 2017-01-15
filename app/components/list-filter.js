@@ -11,9 +11,15 @@ export default Ember.Component.extend({
 
   actions: {
     handleFilterEntry() {
-      let filterInputValue = this.get('value');
-      let filterAction = this.get('filter');
-      filterAction(filterInputValue).then((filterResults) => this.set('results', filterResults));
+      // Run with debounce to avoid a lot of API calls while user
+      // is still typing into the input field
+      Ember.run.debounce(this, this.doHandleFilterEntry, 500);
     }
+  },
+
+  doHandleFilterEntry() {
+    let filterInputValue = this.get('value');
+    let filterAction = this.get('filter');
+    filterAction(filterInputValue).then((filterResults) => this.set('results', filterResults));
   }
 });
