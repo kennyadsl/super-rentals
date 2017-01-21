@@ -41,7 +41,15 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+Deployed on: http://unarmed-umbrella.surge.sh/rentals
+
+```bash
+rm -rf dist
+ember build --environment=development
+cd dist
+cp index.html 200.html
+surge unarmed-umbrella.surge.sh
+```
 
 ## Further Reading / Useful Links
 
