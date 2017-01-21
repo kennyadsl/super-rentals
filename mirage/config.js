@@ -15,4 +15,8 @@ export default function() {
 
     return rentals.all();
   });
+
+  this.get('/rentals/:id', (schema, request) => {
+    return schema.rentals.find(request.params.id);
+  });
 }

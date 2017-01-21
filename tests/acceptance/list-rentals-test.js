@@ -62,6 +62,8 @@ test('should filter the list of rentals by city.', function(assert) {
 });
 
 test('should show details for a specific rental', function(assert) {
+  server.create('rental', { title: "Grand Old Mansion", id: "grand-old-mansion" });
+
   visit('/rentals');
   click('a:contains("Grand Old Mansion")');
   andThen(function() {
