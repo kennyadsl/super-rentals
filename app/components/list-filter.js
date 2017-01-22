@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const { Component, run } = Ember;
+
+export default Component.extend({
   classNames: ['list-filter'],
   value: '',
 
@@ -13,7 +15,7 @@ export default Ember.Component.extend({
     handleFilterEntry() {
       // Run with debounce to avoid a lot of API calls while user
       // is still typing into the input field
-      Ember.run.debounce(this, this.doHandleFilterEntry, 500);
+      run.debounce(this, this.doHandleFilterEntry, 500);
     }
   },
 

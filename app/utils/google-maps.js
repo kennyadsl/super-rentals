@@ -1,8 +1,9 @@
 import Ember from 'ember';
 
 const { google } = window;
+const { Object } = Ember;
 
-export default Ember.Object.extend({
+export default Object.extend({
   init() {
     this.set('geocoder', new google.maps.Geocoder());
   },

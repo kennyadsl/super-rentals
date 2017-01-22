@@ -3,7 +3,9 @@ import Ember from 'ember';
 
 const DUMMY_ELEMENT = {};
 
-let MapUtilStub = Ember.Object.extend({
+const { Object } = Ember;
+
+let MapUtilStub = Object.extend({
   createMap(element, location) {
     this.assert.ok(element, 'createMap called with element');
     this.assert.ok(location, 'createMap called with location');
@@ -26,7 +28,7 @@ test('should create a new map if one isnt cached for location', function(assert)
 
 test('should use existing map if one is cached for location', function(assert) {
   assert.expect(1);
-  let stubCachedMaps = Ember.Object.create({
+  let stubCachedMaps = Object.create({
     sanFrancisco: DUMMY_ELEMENT
   });
   let mapService = this.subject({ cachedMaps: stubCachedMaps });

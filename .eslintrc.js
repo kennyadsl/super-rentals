@@ -12,6 +12,6 @@ module.exports = {
     browser: true
   },
   rules: {
-    'ember-suave/no-direct-property-access': 'off' 
+    'ember-suave/no-direct-property-access': ['error', ['Ember', 'DS']]
   }
 };
