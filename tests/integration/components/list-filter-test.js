@@ -38,7 +38,7 @@ let renderTemplate = function(context) {
   `);
 };
 
-test('should initially load all listings', function (assert) {
+test('should initially load all listings', function(assert) {
   stubActions(this);
   renderTemplate(this);
 
@@ -50,7 +50,7 @@ test('should initially load all listings', function (assert) {
   });
 });
 
-test('should update with matching listings', function (assert) {
+test('should update with matching listings', function(assert) {
   stubActions(this);
   renderTemplate(this);
 
